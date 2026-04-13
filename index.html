@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Reading Luke | Firm Family Church</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --teal: #5BC6DA;
+    --teal-dark: #2fa8be;
+    --teal-deep: #1a7a8a;
+    --teal-light: #d4f0f6;
+    --teal-pale: #eef9fb;
+    --black: #111111;
+    --text-dark: #1a1a1a;
+    --text-mid: #444444;
+    --text-muted: #777777;
+    --white: #ffffff;
+    --off-white: #f8f8f8;
+    --cream: #fafafa;
+    --border: rgba(0,0,0,0.09);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--text-dark);
+    line-height: 1.7;
+  }
+
+  nav {
+    background: var(--black);
+    padding: 0 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 60px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  .nav-logo {
+    font-family: 'Lora', serif;
+    color: white;
+    font-size: 1rem;
+    text-decoration: none;
+  }
+  .nav-logo span { color: var(--teal); }
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links a {
+    color: rgba(255,255,255,0.65);
+    text-decoration: none;
+    font-size: 0.875rem;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: white; }
+
+  .hero {
+    background: var(--black);
+    padding: 5rem 2rem 4.5rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -80px; left: 50%;
+    transform: translateX(-50%);
+    width: 600px; height: 600px;
+    background: radial-gradient(circle, rgba(91,198,218,0.11) 0%, transparent 65%);
+    pointer-events: none;
+  }
+  .hero h1 {
+    font-family: 'Lora', serif;
+    font-size: clamp(2.4rem, 5.5vw, 3.8rem);
+    color: white;
+    font-weight: 600;
+    line-height: 1.15;
+    margin-bottom: 1.25rem;
+  }
+  .hero h1 em { font-style: italic; color: var(--teal); }
+  .hero-sub {
+    font-size: 1.1rem;
+    color: rgba(255,255,255,0.6);
+    max-width: 500px;
+    margin: 0 auto 2rem;
+    font-weight: 300;
+  }
+  .hero-badge {
+    display: inline-block;
+    background: rgba(91,198,218,0.12);
+    border: 1px solid rgba(91,198,218,0.28);
+    color: var(--teal);
+    font-size: 0.82rem;
+    padding: 0.4rem 1.1rem;
+    border-radius: 100px;
+    letter-spacing: 0.05em;
+  }
+
+  .section {
+    max-width: 880px;
+    margin: 0 auto;
+    padding: 4.5rem 2rem;
+  }
+  .section-label {
+    font-size: 0.68rem;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--teal-deep);
+    margin-bottom: 0.65rem;
+  }
+  .section-title {
+    font-family: 'Lora', serif;
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    color: var(--black);
+    font-weight: 600;
+    margin-bottom: 1.1rem;
+    line-height: 1.25;
+  }
+  .section-body {
+    font-size: 1rem;
+    color: var(--text-mid);
+    max-width: 620px;
+  }
+  .section-body p + p { margin-top: 0.85rem; }
+
+  /* INDUCTIVE */
+  .inductive-bg { background: white; border-bottom: 1px solid var(--border); }
+
+  .inductive-steps {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-top: 2.5rem;
+  }
+  .step-card {
+    background: var(--cream);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.5rem;
+  }
+  .step-number {
+    font-family: 'Lora', serif;
+    font-size: 2.5rem;
+    font-weight: 600;
+    color: rgba(91,198,218,0.22);
+    line-height: 1;
+    margin-bottom: 0.5rem;
+  }
+  .step-label {
+    font-size: 0.68rem;
+    font-weight: 500;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--teal-deep);
+    margin-bottom: 0.4rem;
+  }
+  .step-question {
+    font-family: 'Lora', serif;
+    font-size: 1.05rem;
+    color: var(--black);
+    font-style: italic;
+    margin-bottom: 0.5rem;
+  }
+  .step-desc { font-size: 0.88rem; color: var(--text-muted); line-height: 1.6; }
+
+  .hunt-callout {
+    background: var(--black);
+    border-radius: 14px;
+    padding: 2.5rem;
+    margin-top: 2.5rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .hunt-callout::after {
+    content: '';
+    position: absolute;
+    bottom: -40px; right: -40px;
+    width: 220px; height: 220px;
+    border-radius: 50%;
+    background: rgba(91,198,218,0.06);
+    pointer-events: none;
+  }
+  .hunt-callout p {
+    font-family: 'Lora', serif;
+    font-size: 1.2rem;
+    color: rgba(255,255,255,0.88);
+    font-style: italic;
+    line-height: 1.65;
+    max-width: 560px;
+  }
+  .hunt-note {
+    font-family: 'DM Sans', sans-serif;
+    font-style: normal;
+    font-size: 0.85rem;
+    color: var(--teal);
+    margin-top: 1.1rem;
+    display: block;
+  }
+
+  /* PATHS */
+  .paths-bg { background: var(--off-white); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+
+  .paths-intro {
+    font-size: 1rem;
+    color: var(--text-mid);
+    max-width: 600px;
+    margin-top: 0.4rem;
+  }
+
+  .paths-row {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 1rem;
+    margin-top: 2.5rem;
+    align-items: start;
+  }
+  .path-card {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.4rem 1.15rem;
+    transition: box-shadow 0.2s;
+  }
+  .path-card:hover { box-shadow: 0 4px 18px rgba(0,0,0,0.07); }
+  .path-card.pole-left { border-top: 3px solid var(--teal); }
+  .path-card.pole-right { border-top: 3px solid var(--black); }
+
+  .path-tag {
+    display: inline-block;
+    font-size: 0.63rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 0.22rem 0.6rem;
+    border-radius: 100px;
+    margin-bottom: 0.8rem;
+  }
+  .path-tag.go { background: var(--teal-light); color: var(--teal-deep); }
+  .path-tag.table { background: #e8e8e8; color: #333; }
+  .path-tag.mid { background: var(--teal-pale); color: var(--teal-deep); }
+
+  .path-letter {
+    font-family: 'Lora', serif;
+    font-size: 1.5rem;
+    color: var(--black);
+    font-weight: 600;
+    margin-bottom: 0.15rem;
+  }
+  .path-time { font-size: 0.74rem; color: var(--text-muted); margin-bottom: 1rem; }
+
+  .path-steps { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
+  .path-steps li {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.45rem;
+    font-size: 0.81rem;
+    color: var(--text-mid);
+    line-height: 1.5;
+  }
+  .path-steps li::before {
+    content: '';
+    width: 4px; height: 4px;
+    border-radius: 50%;
+    background: var(--teal-dark);
+    flex-shrink: 0;
+    margin-top: 0.6em;
+  }
+  .path-note {
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    font-style: italic;
+    margin-top: 1rem;
+    padding-top: 0.9rem;
+    border-top: 1px solid var(--border);
+    line-height: 1.5;
+  }
+
+  .gentle-note {
+    background: var(--teal-pale);
+    border-left: 3px solid var(--teal);
+    border-radius: 0 8px 8px 0;
+    padding: 1rem 1.25rem;
+    margin-top: 2rem;
+    font-size: 0.95rem;
+    color: var(--text-mid);
+    line-height: 1.65;
+  }
+
+  /* MARKS */
+  .marks-bg { background: white; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+
+  .marks-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    margin-top: 2rem;
+  }
+  .mark-item { display: flex; gap: 1rem; align-items: flex-start; }
+  .mark-symbol {
+    font-size: 1.2rem;
+    color: var(--teal-dark);
+    flex-shrink: 0;
+    width: 30px;
+    text-align: center;
+    margin-top: 0.15rem;
+  }
+  .mark-label { font-size: 0.9rem; font-weight: 500; color: var(--black); margin-bottom: 0.2rem; }
+  .mark-desc { font-size: 0.84rem; color: var(--text-muted); line-height: 1.55; }
+
+  .color-pencil-note {
+    margin-top: 2rem;
+    background: var(--teal-pale);
+    border-radius: 10px;
+    padding: 1.25rem 1.5rem;
+  }
+  .color-pencil-note strong {
+    display: block;
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--teal-deep);
+    margin-bottom: 0.4rem;
+  }
+  .color-pencil-note p { font-size: 0.9rem; color: var(--text-mid); line-height: 1.6; }
+  .color-chips { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.75rem; }
+  .chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.79rem;
+    padding: 0.25rem 0.7rem;
+    border-radius: 100px;
+    border: 1px solid var(--border);
+    background: white;
+    color: var(--text-mid);
+  }
+  .chip-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+
+  /* RESOURCES */
+  .resources-bg { background: var(--cream); }
+
+  .resource-tier { margin-top: 2.5rem; }
+  .tier-label {
+    font-size: 0.68rem;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--teal-deep);
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--border);
+  }
+  .tier-cards {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+  .resource-card {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 1.25rem 1.4rem;
+    text-decoration: none;
+    display: block;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    color: inherit;
+  }
+  .resource-card:hover {
+    border-color: var(--teal);
+    box-shadow: 0 2px 12px rgba(91,198,218,0.1);
+  }
+  .resource-card.full-span { grid-column: 1 / -1; }
+  .resource-card.pdf-card {
+    background: var(--black);
+    border-color: transparent;
+  }
+  .resource-type {
+    font-size: 0.65rem;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--teal-deep);
+    margin-bottom: 0.35rem;
+  }
+  .pdf-card .resource-type { color: var(--teal); }
+  .resource-name {
+    font-family: 'Lora', serif;
+    font-size: 1rem;
+    color: var(--black);
+    font-weight: 600;
+    margin-bottom: 0.3rem;
+    line-height: 1.3;
+  }
+  .pdf-card .resource-name { color: white; }
+  .resource-desc { font-size: 0.84rem; color: var(--text-muted); line-height: 1.55; }
+  .pdf-card .resource-desc { color: rgba(255,255,255,0.52); }
+  .resource-link {
+    font-size: 0.78rem;
+    color: var(--teal-dark);
+    margin-top: 0.65rem;
+    font-weight: 500;
+    display: block;
+  }
+  .pdf-card .resource-link { color: var(--teal); }
+  .resource-link.muted { color: var(--text-muted); font-weight: 400; }
+
+  /* RESPONSIVE */
+  @media (max-width: 860px) {
+    .paths-row { grid-template-columns: repeat(3, 1fr); }
+  }
+  @media (max-width: 640px) {
+    nav { padding: 0 1rem; }
+    .nav-links { display: none; }
+    .inductive-steps { grid-template-columns: 1fr; }
+    .paths-row { grid-template-columns: 1fr; }
+    .marks-grid { grid-template-columns: 1fr; }
+    .tier-cards { grid-template-columns: 1fr; }
+    .section { padding: 3rem 1.25rem; }
+    .hunt-callout { padding: 1.75rem; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#" class="nav-logo">Reading <span>Luke</span></a>
+  <ul class="nav-links">
+    <li><a href="#what-is">The Method</a></li>
+    <li><a href="#how-to-search">How to Search</a></li>
+    <li><a href="#resources">Resources</a></li>
+    <li><a href="https://www.firmfamilychurch.org" target="_blank">Firm Family Church</a></li>
+  </ul>
+</nav>
+
+<header class="hero">
+  <h1>Reading <em>Luke</em><br>at Firm Family</h1>
+  <p class="hero-sub">A journey through the Gospel of Luke. Tools to help every age and stage go looking for treasure in the text.</p>
+  <span class="hero-badge">All Ages and Stages</span>
+</header>
+
+<section id="what-is" class="inductive-bg">
+  <div class="section">
+    <p class="section-label">The Method</p>
+    <h2 class="section-title">Inductive Bible Study</h2>
+    <div class="section-body">
+      <p>Inductive study starts with the text itself, not someone else's conclusions about it. You read it. You observe what's actually there. You let the meaning emerge before you reach for application.</p>
+      <p>Three questions. In order. Every time.</p>
+    </div>
+    <div class="inductive-steps">
+      <div class="step-card">
+        <div class="step-number">1</div>
+        <div class="step-label">Observation</div>
+        <div class="step-question">"What does it say?"</div>
+        <p class="step-desc">Read closely. Notice repeated words, key people, places, actions. See what's actually on the page before adding your assumptions.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-number">2</div>
+        <div class="step-label">Interpretation</div>
+        <div class="step-question">"What does it mean?"</div>
+        <p class="step-desc">Consider context, audience, and how the passage fits the larger story. What was the author saying to the original readers?</p>
+      </div>
+      <div class="step-card">
+        <div class="step-number">3</div>
+        <div class="step-label">Application</div>
+        <div class="step-question">"What do I do with it?"</div>
+        <p class="step-desc">How does the truth of this passage connect to your life today? What does it invite you to believe, do, or let go of?</p>
+      </div>
+    </div>
+    <div class="hunt-callout">
+      <p>Think of it like an Easter egg hunt. You're looking under shrubs, checking behind rocks, scanning the tree line, because you know the treasure is there. You're not wandering. You're searching with purpose.
+        <span class="hunt-note">Sunday mornings help with interpretation and application. The Holy Spirit leads in all three. Your job this week is observation.</span>
+      </p>
+    </div>
+  </div>
+</section>
+
+<section id="how-to-search" class="paths-bg">
+  <div class="section">
+    <p class="section-label">How to Search</p>
+    <h2 class="section-title">Five Ways to Engage Each Week</h2>
+    <p class="paths-intro">Life looks different week to week. Pick the path that fits your schedule. Each one is a complete way to engage. The goal is to know the Son of Man better through His Word.</p>
+
+    <div class="paths-row">
+      <div class="path-card pole-left">
+        <span class="path-tag go">On the Go</span>
+        <div class="path-letter">A</div>
+        <div class="path-time">10&ndash;15 min</div>
+        <ul class="path-steps">
+          <li>Read the assigned passage before Sunday</li>
+          <li>Find one thing that stands out to you</li>
+          <li>Share it Sunday during praise time, or tell a friend</li>
+        </ul>
+        <p class="path-note">Works for anyone in a busy week. One passage, one find.</p>
+      </div>
+
+      <div class="path-card">
+        <span class="path-tag mid">Going Further</span>
+        <div class="path-letter">B</div>
+        <div class="path-time">20&ndash;25 min</div>
+        <ul class="path-steps">
+          <li>Everything in A</li>
+          <li>Underline every reference to God, Father, Jesus, Christ, or Holy Spirit</li>
+        </ul>
+      </div>
+
+      <div class="path-card">
+        <span class="path-tag mid">Going Further</span>
+        <div class="path-letter">C</div>
+        <div class="path-time">30&ndash;35 min</div>
+        <ul class="path-steps">
+          <li>Everything in B</li>
+          <li>Mark Luke's keywords for the book</li>
+          <li>Write section titles in your own words</li>
+          <li>Note what Jesus is doing and who He is</li>
+        </ul>
+      </div>
+
+      <div class="path-card">
+        <span class="path-tag mid">Going Further</span>
+        <div class="path-letter">D</div>
+        <div class="path-time">40&ndash;45 min</div>
+        <ul class="path-steps">
+          <li>Everything in C</li>
+          <li>Mark comparisons and contrasts</li>
+          <li>Note what's being set against what and what the tension reveals</li>
+        </ul>
+      </div>
+
+      <div class="path-card pole-right">
+        <span class="path-tag table">At the Table</span>
+        <div class="path-letter">E</div>
+        <div class="path-time">1 hour+</div>
+        <ul class="path-steps">
+          <li>Everything in D</li>
+          <li>Look up 1&ndash;2 key words in the original Greek</li>
+          <li>Use Blue Letter Bible or a concordance</li>
+          <li>Record what you find</li>
+        </ul>
+        <p class="path-note">Less intimidating than it sounds. Learn 20 Greek words and your study will never be the same.</p>
+      </div>
+    </div>
+
+    <div class="gentle-note">
+      Some weeks you'll have more time than others. Travel, illness, a hard week. Show up to Sunday having read the passage if you can. That's the foundation. Everything else builds from there, and none of it is required every week.
+    </div>
+  </div>
+</section>
+
+<section id="marks" class="marks-bg">
+  <div class="section">
+    <p class="section-label">Observation Tools</p>
+    <h2 class="section-title">What to Mark in the Text</h2>
+    <div class="section-body">
+      <p>You'll need a printed copy of the passage (PDF below) and something to write with. Marking the text by hand is part of the observation process.</p>
+    </div>
+    <div class="marks-grid">
+      <div class="mark-item">
+        <div class="mark-symbol">&#9650;</div>
+        <div>
+          <div class="mark-label">Triangle</div>
+          <p class="mark-desc">God, Father, Jesus, Christ, Holy Spirit. Mark every reference to any member of the Trinity.</p>
+        </div>
+      </div>
+      <div class="mark-item">
+        <div class="mark-symbol">&#9675;</div>
+        <div>
+          <div class="mark-label">Circle</div>
+          <p class="mark-desc">Key terms and repeated words. Circling the same word multiple times in a passage often reveals the main idea.</p>
+        </div>
+      </div>
+      <div class="mark-item">
+        <div class="mark-symbol">&#8596;</div>
+        <div>
+          <div class="mark-label">Arrow</div>
+          <p class="mark-desc">Comparisons and contrasts. What is being set against what? What does the tension reveal?</p>
+        </div>
+      </div>
+      <div class="mark-item">
+        <div class="mark-symbol">[ ]</div>
+        <div>
+          <div class="mark-label">Brackets</div>
+          <p class="mark-desc">Section divisions. Write a title in your own words above each bracket. This forces understanding, not just reading.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="color-pencil-note">
+      <strong>Try colored pencils</strong>
+      <p>Different colors for different marks make patterns in the text jump off the page. A great way to involve kids too. A few ideas to get you started:</p>
+      <div class="color-chips">
+        <span class="chip"><span class="chip-dot" style="background:#7b5ea7;"></span>Purple &mdash; God / Father</span>
+        <span class="chip"><span class="chip-dot" style="background:#5BC6DA;"></span>Blue &mdash; Jesus / Christ</span>
+        <span class="chip"><span class="chip-dot" style="background:#e8a838;"></span>Yellow &mdash; Holy Spirit</span>
+        <span class="chip"><span class="chip-dot" style="background:#e05555;"></span>Red &mdash; key terms</span>
+        <span class="chip"><span class="chip-dot" style="background:#4caf77;"></span>Green &mdash; contrasts</span>
+      </div>
+      <p style="margin-top: 0.65rem; font-size: 0.84rem; color: var(--text-muted);">These aren't rules. Use what helps you see.</p>
+    </div>
+  </div>
+</section>
+
+<section id="resources" class="resources-bg">
+  <div class="section">
+    <p class="section-label">Your Toolkit</p>
+    <h2 class="section-title">Resources for the Hunt</h2>
+    <div class="section-body">
+      <p>Organized by the same logic as the paths. Start at the top. Go deeper as you're ready. Everything here is free unless noted.</p>
+    </div>
+
+    <div class="resource-tier">
+      <div class="tier-label">Start here &mdash; Paths A &amp; B</div>
+      <div class="tier-cards">
+        <div class="resource-card pdf-card full-span">
+          <div class="resource-type">Primary Tool</div>
+          <div class="resource-name">Double-Spaced Gospel of Luke (PDF)</div>
+          <p class="resource-desc">Print this out. Wide margins and spacing give you room to write, circle, bracket, and mark up the text. This is your main tool for the whole journey.</p>
+          <span class="resource-link">&#8595; Download PDF &mdash; coming soon</span>
+        </div>
+        <a href="https://www.jesusfilm.org/watch/jesus.html/english.html" target="_blank" class="resource-card">
+          <div class="resource-type">Visual / Video</div>
+          <div class="resource-name">The Jesus Film</div>
+          <p class="resource-desc">A 1979 film drawn directly from Luke's Gospel, with about 70% direct dialogue from the text. Good for families and kids before reading the passage. Helpful for seeing the narrative in sequence.</p>
+          <span class="resource-link">jesusfilm.org &rarr;</span>
+        </a>
+        <div class="resource-card">
+          <div class="resource-type">Already in Your Hands</div>
+          <div class="resource-name">The Back of Your Bible</div>
+          <p class="resource-desc">Most study Bibles include a concordance and maps of first-century Israel. A concordance lets you find every verse using a specific word. The maps put Jesus's travels in geographic context.</p>
+          <span class="resource-link muted">Check the appendix of your Bible</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="resource-tier">
+      <div class="tier-label">Go deeper &mdash; Paths C &amp; D</div>
+      <div class="tier-cards">
+        <div class="resource-card">
+          <div class="resource-type">Context</div>
+          <div class="resource-name">Gospel Harmony</div>
+          <p class="resource-desc">A Gospel harmony chart shows where Luke's unique material appears and where the other Gospels cover the same events. Clarifies what Luke emphasizes and why.</p>
+          <span class="resource-link muted">Search "Gospel harmony chart" online &mdash; many free versions available</span>
+        </div>
+        <a href="https://www.precept.org/free-study-resources/precept-bible-study-method/" target="_blank" class="resource-card">
+          <div class="resource-type">Study Method</div>
+          <div class="resource-name">Precept Free Study Resources</div>
+          <p class="resource-desc">Precept Ministries has developed inductive study materials for decades. Their free resources page is a solid reference for observation techniques and marking methods.</p>
+          <span class="resource-link">precept.org &rarr;</span>
+        </a>
+      </div>
+    </div>
+
+    <div class="resource-tier">
+      <div class="tier-label">Go further &mdash; Paths D &amp; E</div>
+      <div class="tier-cards">
+        <a href="https://www.blueletterbible.org" target="_blank" class="resource-card">
+          <div class="resource-type">Greek &amp; Original Language</div>
+          <div class="resource-name">Blue Letter Bible</div>
+          <p class="resource-desc">Free. Click any word in a passage to see the original Greek, its definition, and every verse where it appears. This is the tool for Path E. No prior knowledge required to get started.</p>
+          <span class="resource-link">blueletterbible.org &rarr;</span>
+        </a>
+        <div class="resource-card">
+          <div class="resource-type">Book &mdash; Paid</div>
+          <div class="resource-name">Living by the Book</div>
+          <p class="resource-desc">The clearest guide to inductive Bible study available. Howard Hendricks and Bill Hendricks. If you want to go deeper on the method itself, start here. Readable for high schoolers and adults alike.</p>
+          <span class="resource-link muted">Howard &amp; Bill Hendricks &mdash; available new or used online</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+</body>
+</html>

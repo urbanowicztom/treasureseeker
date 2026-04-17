@@ -207,217 +207,70 @@
 
   /* PATHS */
   .paths-bg { background: var(--off-white); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
-
-  .paths-intro {
-    font-size: 1rem;
-    color: var(--text-mid);
-    max-width: 600px;
-    margin-top: 0.4rem;
-  }
-
-  .paths-row {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 1rem;
-    margin-top: 2.5rem;
-    align-items: start;
-  }
-  .path-card {
-    background: lightgray;
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 1.4rem 1.15rem;
-    transition: box-shadow 0.2s;
-  }
+  .paths-intro { font-size: 1rem; color: var(--text-mid); max-width: 600px; margin-top: 0.4rem; }
+  .paths-row { display: grid; grid-template-columns: repeat(5, 1fr); gap: 1rem; margin-top: 2.5rem; align-items: start; }
+  .path-card { background: lightgray; border: 1px solid var(--border); border-radius: 12px; padding: 1.4rem 1.15rem; transition: box-shadow 0.2s; }
   .path-card:hover { box-shadow: 0 4px 18px rgba(0,0,0,0.07); }
   .path-card.pole-left { border-top: 3px solid var(--teal); }
   .path-card.pole-right { border-top: 3px solid var(--black); }
-
-  .path-tag {
-    display: inline-block;
-    font-size: 0.63rem;
-    font-weight: 500;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    padding: 0.22rem 0.6rem;
-    border-radius: 100px;
-    margin-bottom: 0.8rem;
-  }
+  .path-tag { display: inline-block; font-size: 0.63rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.22rem 0.6rem; border-radius: 100px; margin-bottom: 0.8rem; }
   .path-tag.go { background: var(--teal-light); color: var(--teal-deep); }
   .path-tag.table { background: #e8e8e8; color: #333; }
   .path-tag.mid { background: var(--teal-pale); color: var(--teal-deep); }
-
-  .path-letter {
-    font-family: 'Lora', serif;
-    font-size: 1.5rem;
-    color: var(--black);
-    font-weight: 600;
-    margin-bottom: 0.15rem;
-    text-align: center;
-  }
+  .path-letter { font-family: 'Lora', serif; font-size: 1.5rem; color: var(--black); font-weight: 600; margin-bottom: 0.15rem; text-align: center; }
   .path-time { font-size: 0.74rem; color: var(--text-muted); margin-bottom: 1rem; }
-
   .path-steps { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
-  .path-steps li {
-    display: flex;
-    align-items: flex-start;
-    gap: 0.45rem;
-    font-size: 0.81rem;
-    color: var(--text-mid);
-    line-height: 1.5;
-  }
-  .path-steps li::before {
-    content: '';
-    width: 4px; height: 4px;
-    border-radius: 50%;
-    background: var(--teal-dark);
-    flex-shrink: 0;
-    margin-top: 0.6em;
-  }
-  .path-note {
-    font-size: 0.78rem;
-    color: var(--text-muted);
-    font-style: italic;
-    margin-top: 1rem;
-    padding-top: 0.9rem;
-    border-top: 1px solid var(--border);
-    line-height: 1.5;
-  }
-
-  .gentle-note {
-    background: var(--teal-pale);
-    border-left: 3px solid var(--teal);
-    border-radius: 0 8px 8px 0;
-    padding: 1rem 1.25rem;
-    margin-top: 2rem;
-    font-size: 0.95rem;
-    color: var(--text-mid);
-    line-height: 1.65;
-  }
+  .path-steps li { display: flex; align-items: flex-start; gap: 0.45rem; font-size: 0.81rem; color: var(--text-mid); line-height: 1.5; }
+  .path-steps li::before { content: ''; width: 4px; height: 4px; border-radius: 50%; background: var(--teal-dark); flex-shrink: 0; margin-top: 0.6em; }
+  .path-note { font-size: 0.78rem; color: var(--text-muted); font-style: italic; margin-top: 1rem; padding-top: 0.9rem; border-top: 1px solid var(--border); line-height: 1.5; }
+  .gentle-note { background: var(--teal-pale); border-left: 3px solid var(--teal); border-radius: 0 8px 8px 0; padding: 1rem 1.25rem; margin-top: 2rem; font-size: 0.95rem; color: var(--text-mid); line-height: 1.65; }
 
   /* MARKS */
   .marks-bg { background: white; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
-
-  .marks-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.5rem;
-    margin-top: 2rem;
-  }
+  .marks-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; margin-top: 2rem; }
   .mark-item { display: flex; gap: 1rem; align-items: flex-start; }
-  .mark-symbol {
-    font-size: 1.2rem;
-    color: var(--teal-dark);
-    flex-shrink: 0;
-    width: 30px;
-    text-align: center;
-    margin-top: 0.15rem;
-  }
+  .mark-symbol { font-size: 1.2rem; color: var(--teal-dark); flex-shrink: 0; width: 30px; text-align: center; margin-top: 0.15rem; }
   .mark-label { font-size: 0.9rem; font-weight: 500; color: var(--black); margin-bottom: 0.2rem; }
   .mark-desc { font-size: 0.84rem; color: var(--text-muted); line-height: 1.55; }
-
-  .color-pencil-note {
-    margin-top: 2rem;
-    background: var(--teal-pale);
-    border-radius: 10px;
-    padding: 1.25rem 1.5rem;
-  }
-  .color-pencil-note strong {
-    display: block;
-    font-size: 0.72rem;
-    font-weight: 500;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--teal-deep);
-    margin-bottom: 0.4rem;
-  }
+  .color-pencil-note { margin-top: 2rem; background: var(--teal-pale); border-radius: 10px; padding: 1.25rem 1.5rem; }
+  .color-pencil-note strong { display: block; font-size: 0.72rem; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--teal-deep); margin-bottom: 0.4rem; }
   .color-pencil-note p { font-size: 0.9rem; color: var(--text-mid); line-height: 1.6; }
   .color-chips { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.75rem; }
-  .chip {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.4rem;
-    font-size: 0.79rem;
-    padding: 0.25rem 0.7rem;
-    border-radius: 100px;
-    border: 1px solid var(--border);
-    background: white;
-    color: var(--text-mid);
-  }
+  .chip { display: inline-flex; align-items: center; gap: 0.4rem; font-size: 0.79rem; padding: 0.25rem 0.7rem; border-radius: 100px; border: 1px solid var(--border); background: white; color: var(--text-mid); }
   .chip-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
 
   /* RESOURCES */
   .resources-bg { background: var(--cream); }
-
   .resource-tier { margin-top: 2.5rem; }
-  .tier-label {
-    font-size: 0.68rem;
-    font-weight: 500;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: var(--teal-deep);
-    margin-bottom: 1rem;
-    padding-bottom: 0.5rem;
-    border-bottom: 1px solid var(--border);
-  }
-  .tier-cards {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1rem;
-  }
-  .resource-card {
-    background: white;
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    padding: 1.25rem 1.4rem;
-    text-decoration: none;
-    display: block;
-    transition: border-color 0.2s, box-shadow 0.2s;
-    color: inherit;
-  }
-  .resource-card:hover {
-    border-color: var(--teal);
-    box-shadow: 0 2px 12px rgba(91,198,218,0.1);
-  }
+  .tier-label { font-size: 0.68rem; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: var(--teal-deep); margin-bottom: 1rem; padding-bottom: 0.5rem; border-bottom: 1px solid var(--border); }
+  .tier-cards { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+  .resource-card { background: white; border: 1px solid var(--border); border-radius: 10px; padding: 1.25rem 1.4rem; text-decoration: none; display: block; transition: border-color 0.2s, box-shadow 0.2s; color: inherit; }
+  .resource-card:hover { border-color: var(--teal); box-shadow: 0 2px 12px rgba(91,198,218,0.1); }
   .resource-card.full-span { grid-column: 1 / -1; }
-  .resource-card.pdf-card {
-    background: var(--black);
-    border-color: transparent;
-  }
-  .resource-type {
-    font-size: 0.65rem;
-    font-weight: 500;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: var(--teal-deep);
-    margin-bottom: 0.35rem;
-  }
+  .resource-card.pdf-card { background: var(--black); border-color: transparent; }
+  .resource-type { font-size: 0.65rem; font-weight: 500; letter-spacing: 0.15em; text-transform: uppercase; color: var(--teal-deep); margin-bottom: 0.35rem; }
   .pdf-card .resource-type { color: var(--teal); }
-  .resource-name {
-    font-family: 'Lora', serif;
-    font-size: 1rem;
-    color: var(--black);
-    font-weight: 600;
-    margin-bottom: 0.3rem;
-    line-height: 1.3;
-  }
+  .resource-name { font-family: 'Lora', serif; font-size: 1rem; color: var(--black); font-weight: 600; margin-bottom: 0.3rem; line-height: 1.3; }
   .pdf-card .resource-name { color: white; }
   .resource-desc { font-size: 0.84rem; color: var(--text-muted); line-height: 1.55; }
   .pdf-card .resource-desc { color: rgba(255,255,255,0.52); }
-  .resource-link {
-    font-size: 0.78rem;
-    color: var(--teal-dark);
-    margin-top: 0.65rem;
-    font-weight: 500;
-    display: block;
-  }
+  .resource-link { font-size: 0.78rem; color: var(--teal-dark); margin-top: 0.65rem; font-weight: 500; display: block; }
   .pdf-card .resource-link { color: var(--teal); }
   .resource-link.muted { color: var(--text-muted); font-weight: 400; }
 
+  /* SCHEDULE */
+  .schedule-bg { background: white; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+  .schedule-table { width: 100%; border-collapse: collapse; margin-top: 2rem; font-size: 0.88rem; }
+  .schedule-table thead tr { border-bottom: 2px solid var(--teal); }
+  .schedule-table th { text-align: left; font-size: 0.68rem; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--teal-deep); padding: 0 1rem 0.65rem 0; }
+  .schedule-table td { padding: 0.6rem 1rem 0.6rem 0; color: var(--text-mid); border-bottom: 1px solid var(--border); vertical-align: top; }
+  .schedule-table tr:last-child td { border-bottom: none; }
+  .schedule-table td:first-child { color: var(--text-muted); font-size: 0.82rem; white-space: nowrap; width: 110px; }
+  .schedule-table td.passage { font-weight: 500; color: var(--black); }
+  .schedule-table tr.special td { color: var(--teal-deep); font-style: italic; }
+
   /* RESPONSIVE */
-  @media (max-width: 860px) {
-    .paths-row { grid-template-columns: repeat(3, 1fr); }
-  }
+  @media (max-width: 860px) { .paths-row { grid-template-columns: repeat(3, 1fr); } }
   @media (max-width: 640px) {
     nav { padding: 0 1rem; }
     .nav-links { display: none; }
@@ -437,9 +290,10 @@
   <ul class="nav-links">
     <li><a href="#what-is">The Method</a></li>
     <li><a href="#how-to-search">How to Search</a></li>
+    <li><a href="#schedule">Schedule</a></li>
     <li><a href="#resources">Resources</a></li>
     <li><a href="#prayer">Prayer</a></li>
-    <li><a href="kids.html" style="color:#f9c74f; font-weight:500;">&#9733; Kids</a></li>
+    <li><a href="kids.html" style="color:#f9c74f; font-weight:700;">&#9733; Kids</a></li>
   </ul>
 </nav>
 
@@ -448,27 +302,24 @@
   <p class="hero-sub">A journey through the Gospel of Luke. Tools to help every age and stage go looking for treasure in the text.</p>
   <span class="hero-badge">All Ages and Stages</span>
   <div style="margin-top:1.5rem;">
-    <a href="kids.html" style="display:inline-block; background:#f9c74f; color:#111; font-family:'DM Sans',sans-serif; font-weight:600; font-size:1rem; padding:0.75rem 1.75rem; border-radius:100px; text-decoration:none; letter-spacing:0.02em; transition:transform 0.15s;">&#x1F3AF; Kids, Click Here!</a>
+    <a href="kids.html" style="display:inline-block; background:#f9c74f; color:#111; font-family:'DM Sans',sans-serif; font-weight:700; font-size:1rem; padding:0.75rem 1.75rem; border-radius:100px; text-decoration:none; letter-spacing:0.02em;">&#x1F3AF; Kids Click Here!</a>
   </div>
 </header>
 
 <section id="what-is" class="inductive-bg">
-  
- <div class="section">
+  <div class="section">
     <p class="section-label">The Why</p>
     <h2 class="section-title">The Reason To Explore</h2>
-      <div class="section-body">
+    <div class="section-body">
       <p>To develop a faith that is real, we must understand the foundation of our faith. To think Biblically, live distinctively, and love like Jesus to impact our world for Christ, we need to understand what God is telling us through the Scriptures and by His Spirit.</p>
     </div>
   </div>
-
 
   <div class="section">
     <p class="section-label">The Method</p>
     <h2 class="section-title">Inductive Bible Study</h2>
     <div class="section-body">
-      <p>Inductive study starts by reading the text itself. You observe what's actually there. You let the meaning emerge before you reach for application. Begin your time of study with <a href=#prayer>prayer<a>.</p>
-
+      <p>Inductive study starts by reading the text itself. You observe what's actually there. You let the meaning emerge before you reach for application. Begin your time of study with <a href=#prayer>prayer</a>.</p>
     </div>
     <div class="inductive-steps">
       <div class="step-card">
@@ -492,7 +343,7 @@
     </div>
     <div class="hunt-callout">
       <p>Think of it like an Easter egg hunt. You're looking under shrubs, checking behind rocks, scanning the landscape, because you know the treasure is there. You're not wandering. You're searching with intent.
-        <span class="hunt-note">The Holy Spirit leads in Observation, Interpretation, and Application. The family of believers can provide wisdom and encouragement on what to observe, how to interpret, and ways to apply God's truth to our lives. This is not a solo expedition! </span>
+        <span class="hunt-note">The Holy Spirit leads in Observation, Interpretation, and Application. The family of believers can provide wisdom and encouragement on what to observe, how to interpret, and ways to apply God's truth to our lives. This is not a solo expedition!</span>
       </p>
     </div>
   </div>
@@ -502,7 +353,7 @@
   <div class="section">
     <p class="section-label">The Big Picture</p>
     <h2 class="section-title">A Complete Overview</h2>
-    <p class="paths-intro">To understand the individual parts of Luke's gospel, it's helpful to be familiar with the whole. Reading or listening to the gospel in its entirety will provide valuable context when exploring passages. </p>
+    <p class="paths-intro">To understand the individual parts of Luke's gospel, it's helpful to be familiar with the whole. Reading or listening to the gospel in its entirety will provide valuable context when exploring passages.</p>
   </div>
 </section>
 
@@ -511,7 +362,6 @@
     <p class="section-label">How to Search</p>
     <h2 class="section-title">Four Weekly Options</h2>
     <p class="paths-intro">Life looks different week to week. Pick a search that fits. Each one is a complete way to engage. The goal is to know the Son of Man better through His Word.</p>
-
     <div class="paths-row">
       <div class="path-card">
         <div class="path-letter">A</div>
@@ -519,7 +369,6 @@
           <li>Search to find one treasure in the text</li>
         </ul>
       </div>
-
       <div class="path-card">
         <div class="path-letter">B</div>
         <ul class="path-steps">
@@ -528,7 +377,6 @@
           <li>Write chapter titles in your own words</li>
         </ul>
       </div>
-
       <div class="path-card">
         <div class="path-letter">C</div>
         <ul class="path-steps">
@@ -537,7 +385,6 @@
           <li>Find locations on a map</li>
         </ul>
       </div>
-
       <div class="path-card">
         <div class="path-letter">D</div>
         <ul class="path-steps">
@@ -586,7 +433,6 @@
         </div>
       </div>
     </div>
-
     <div class="color-pencil-note">
       <strong>Try colored pencils</strong>
       <p>Different colors helps the text jump off the page. Here's some ideas:</p>
@@ -595,7 +441,6 @@
         <span class="chip"><span class="chip-dot" style="background:#5BC6DA;"></span>Blue &mdash; Jesus / Christ</span>
         <span class="chip"><span class="chip-dot" style="background:#e8a838;"></span>Yellow &mdash; Holy Spirit</span>
         <span class="chip"><span class="chip-dot" style="background:#e05555;"></span>Red &mdash; key terms</span>
-    
       </div>
       <p style="margin-top: 0.65rem; font-size: 0.84rem; color: var(--text-muted);">These aren't rules. Use what helps you see.</p>
     </div>
@@ -627,20 +472,18 @@
           <div class="resource-type">Already in Your Hands</div>
           <div class="resource-name">The Back of Your Bible</div>
           <p class="resource-desc">Most study Bibles include a concordance and maps of first-century Israel. A concordance lets you find every verse using a specific word. The maps put Jesus's travels in geographic context.</p>
-  
         </div>
       </div>
     </div>
 
     <div class="resource-tier">
       <div class="tier-cards">
-        <a href="https://www.blueletterbible.org/study/harmony/index.cfm" target="_blank" class="resource-card">
-          <div class="resource-type">Context</div>
-          <div class="resource-name">Gospel Harmony</div>
-          <p class="resource-desc">A Gospel harmony chart shows where Luke's unique material appears and where the other Gospels cover the same events. Clarifies what Luke emphasizes and why.</p>
-          <span class="resource-link">Harmony of the Gospels &rarr;</span>
+        <a href="https://bibleproject.com/explore/video/gospel-luke/" target="_blank" class="resource-card">
+          <div class="resource-type">Video / Overview</div>
+          <div class="resource-name">Bible Project &mdash; Luke</div>
+          <p class="resource-desc">A short animated overview of Luke's Gospel that maps the structure, themes, and key ideas of the book. Good context before diving into a new section. Free.</p>
+          <span class="resource-link">bibleproject.com &rarr;</span>
         </a>
-      
         <a href="https://www.precept.org/free-study-resources/precept-bible-study-method/" target="_blank" class="resource-card">
           <div class="resource-type">Study Method</div>
           <div class="resource-name">Precept Free Study Resources</div>
@@ -658,15 +501,72 @@
           <p class="resource-desc">Free. Click any word in a passage to see the original Greek, its definition, and every verse where it appears.</p>
           <span class="resource-link">blueletterbible.org &rarr;</span>
         </a>
-        
+        <a href="https://www.desiringgod.org/labs" target="_blank" class="resource-card">
+          <div class="resource-type">Video Series &mdash; Free</div>
+          <div class="resource-name">Look at the Book &mdash; John Piper</div>
+          <p class="resource-desc">Piper works through passages in real time, marking the text on screen and explaining his observations. Not every chapter of Luke is covered, but the method modeled is directly applicable to any passage.</p>
+          <span class="resource-link">desiringgod.org/labs &rarr;</span>
+        </a>
         <a href="https://www.amazon.com/Living-Book-Science-Reading-Bible/dp/0802408230" target="_blank" class="resource-card">
           <div class="resource-type">Book &mdash; Paid</div>
           <div class="resource-name">Living by the Book</div>
-          <p class="resource-desc">A classic, clear guide to inductive Bible study. If you want to go deeper on the method itself, start here. Readable for high schoolers and adults alike, available new, used, Kindle and Audiobook.  </p>
-          <span class="resource-link">Living by the Book &rarr;</a></span>
+          <p class="resource-desc">A classic, clear guide to inductive Bible study. If you want to go deeper on the method itself, start here. Readable for high schoolers and adults alike, available new, used, Kindle and Audiobook.</p>
+          <span class="resource-link">Living by the Book &rarr;</span>
+        </a>
+        <div class="resource-card">
+          <div class="resource-type">Resource Church</div>
+          <div class="resource-name">Luke Journaling Bible</div>
+          <p class="resource-desc">Firm Family has copies available at the Resource Table. Wide margins designed for notes, marking, and study. Free.</p>
+        </div>
       </div>
     </div>
 
+  </div>
+</section>
+
+<section id="schedule" class="schedule-bg">
+  <div class="section">
+    <p class="section-label">Reading Plan</p>
+    <h2 class="section-title">Passage Schedule</h2>
+    <div class="section-body">
+      <p>Each Sunday covers one section of Luke. Read the passage beforehand and discover a treasure!</p>
+    </div>
+    <table class="schedule-table">
+      <thead><tr><th>Date</th><th>Passage</th></tr></thead>
+      <tbody>
+        <tr><td>May 3</td><td class="passage">Introduction to Luke</td></tr>
+        <tr class="special"><td>May 10</td><td class="passage">Special Topic</td></tr>
+        <tr><td>May 17</td><td class="passage">Luke 1:1&ndash;25, 57&ndash;80</td></tr>
+        <tr><td>May 24</td><td class="passage">Luke 1:26&ndash;56, 2:1&ndash;21</td></tr>
+        <tr><td>May 31</td><td class="passage">Luke 2:22&ndash;52</td></tr>
+        <tr><td>Jun 7</td><td class="passage">Luke 3</td></tr>
+        <tr><td>Jun 14</td><td class="passage">Luke 4:1&ndash;13</td></tr>
+        <tr class="special"><td>Jun 21</td><td class="passage">Special Topic</td></tr>
+        <tr><td>Jun 28</td><td class="passage">Luke 4:14&ndash;30</td></tr>
+        <tr><td>Jul 5</td><td class="passage">Luke 4:31&ndash;44</td></tr>
+        <tr><td>Jul 12</td><td class="passage">Luke 5:1&ndash;11, 27&ndash;31</td></tr>
+        <tr><td>Jul 19</td><td class="passage">Luke 5:12&ndash;26</td></tr>
+        <tr><td>Jul 26</td><td class="passage">Luke 5:33&ndash;6:5</td></tr>
+        <tr><td>Aug 2</td><td class="passage">Luke 6:6&ndash;19</td></tr>
+        <tr><td>Aug 9</td><td class="passage">Luke 6:20&ndash;26</td></tr>
+        <tr><td>Aug 16</td><td class="passage">Luke 6:27&ndash;36</td></tr>
+        <tr><td>Aug 23</td><td class="passage">Luke 6:37&ndash;42</td></tr>
+        <tr><td>Aug 30</td><td class="passage">Luke 6:43&ndash;49</td></tr>
+        <tr class="special"><td>Sep 6</td><td class="passage">Special Topic</td></tr>
+        <tr><td>Sep 13</td><td class="passage">Luke 7:1&ndash;17</td></tr>
+        <tr><td>Sep 20</td><td class="passage">Luke 7:18&ndash;35</td></tr>
+        <tr><td>Sep 27</td><td class="passage">Luke 7:36&ndash;50</td></tr>
+        <tr><td>Oct 4</td><td class="passage">Luke 8:1&ndash;21</td></tr>
+        <tr><td>Oct 11</td><td class="passage">Luke 8:22&ndash;56</td></tr>
+        <tr><td>Oct 18</td><td class="passage">Luke 9:1&ndash;9</td></tr>
+        <tr><td>Oct 25</td><td class="passage">Luke 9:10&ndash;22</td></tr>
+        <tr><td>Nov 1</td><td class="passage">Luke 9:23&ndash;27</td></tr>
+        <tr><td>Nov 8</td><td class="passage">Luke 9:28&ndash;36</td></tr>
+        <tr><td>Nov 15</td><td class="passage">Luke 9:37&ndash;45</td></tr>
+        <tr><td>Nov 22</td><td class="passage">Luke 9:46&ndash;50</td></tr>
+        <tr><td>Nov 29</td><td class="passage">Luke 9:51&ndash;62</td></tr>
+      </tbody>
+    </table>
   </div>
 </section>
 
@@ -678,12 +578,13 @@
     <div class="section-body">
       <p>The study of Scripture is not merely an academic exercise. We depend on the Holy Spirit to illuminate the Word and to soften our hearts and shape our wills.</p>
       <p>&nbsp;</p>
-    <div class="section-body">
-      <span><i>“Open my eyes, that I may behold wondrous things out of your law.”</i> — Psalm 119:18</span>
-      <span><i>“Teach me your way, O Lord, that I may walk in your truth.”</i> — Psalm 86:11</span>
+      <div class="section-body">
+        <span><i>"Open my eyes, that I may behold wondrous things out of your law."</i> &mdash; Psalm 119:18</span>
+        <span><i>"Teach me your way, O Lord, that I may walk in your truth."</i> &mdash; Psalm 86:11</span>
+      </div>
     </div>
   </div>
- </section>
+</section>
 
 <section style="background-color: black;">
   <div style="text-align: center; padding:3rem; color: white;">

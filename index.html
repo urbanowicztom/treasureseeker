@@ -414,6 +414,17 @@
   .pdf-card .resource-link { color: var(--teal); }
   .resource-link.muted { color: var(--text-muted); font-weight: 400; }
 
+  /* SCHEDULE */
+  .schedule-bg { background: white; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+  .schedule-table { width: 100%; border-collapse: collapse; margin-top: 2rem; font-size: 0.88rem; }
+  .schedule-table thead tr { border-bottom: 2px solid var(--teal); }
+  .schedule-table th { text-align: left; font-size: 0.68rem; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--teal-deep); padding: 0 1rem 0.65rem 0; }
+  .schedule-table td { padding: 0.6rem 1rem 0.6rem 0; color: var(--text-mid); border-bottom: 1px solid var(--border); vertical-align: top; }
+  .schedule-table tr:last-child td { border-bottom: none; }
+  .schedule-table td:first-child { color: var(--text-muted); font-size: 0.82rem; white-space: nowrap; width: 110px; }
+  .schedule-table td.passage { font-weight: 500; color: var(--black); }
+  .schedule-table tr.special td { color: var(--teal-deep); font-style: italic; }
+
   /* RESPONSIVE */
   @media (max-width: 860px) {
     .paths-row { grid-template-columns: repeat(3, 1fr); }
@@ -437,6 +448,7 @@
   <ul class="nav-links">
     <li><a href="#what-is">The Method</a></li>
     <li><a href="#how-to-search">How to Search</a></li>
+    <li><a href="#schedule">Schedule</a></li>
     <li><a href="#resources">Resources</a></li>
     <li><a href="#prayer">Prayer</a></li>
   </ul>
@@ -630,13 +642,12 @@
 
     <div class="resource-tier">
       <div class="tier-cards">
-        <a href="https://www.blueletterbible.org/study/harmony/index.cfm" target="_blank" class="resource-card">
-          <div class="resource-type">Context</div>
-          <div class="resource-name">Gospel Harmony</div>
-          <p class="resource-desc">A Gospel harmony chart shows where Luke's unique material appears and where the other Gospels cover the same events. Clarifies what Luke emphasizes and why.</p>
-          <span class="resource-link">Harmony of the Gospels &rarr;</span>
+        <a href="https://bibleproject.com/explore/video/gospel-luke/" target="_blank" class="resource-card">
+          <div class="resource-type">Video / Overview</div>
+          <div class="resource-name">Bible Project &mdash; Luke</div>
+          <p class="resource-desc">A short animated overview of Luke's Gospel that maps the structure, themes, and key ideas of the book. Good context before diving into a new section. Free.</p>
+          <span class="resource-link">bibleproject.com &rarr;</span>
         </a>
-      
         <a href="https://www.precept.org/free-study-resources/precept-bible-study-method/" target="_blank" class="resource-card">
           <div class="resource-type">Study Method</div>
           <div class="resource-name">Precept Free Study Resources</div>
@@ -654,17 +665,73 @@
           <p class="resource-desc">Free. Click any word in a passage to see the original Greek, its definition, and every verse where it appears.</p>
           <span class="resource-link">blueletterbible.org &rarr;</span>
         </a>
-        
+        <a href="https://www.desiringgod.org/labs" target="_blank" class="resource-card">
+          <div class="resource-type">Video Series &mdash; Free</div>
+          <div class="resource-name">Look at the Book &mdash; John Piper</div>
+          <p class="resource-desc">Piper works through passages in real time, marking the text on screen and explaining his observations. Not every chapter of Luke is covered, but the method modeled is directly applicable to any passage.</p>
+          <span class="resource-link">desiringgod.org/labs &rarr;</span>
+        </a>
         <a href="https://www.amazon.com/Living-Book-Science-Reading-Bible/dp/0802408230" target="_blank" class="resource-card">
           <div class="resource-type">Book &mdash; Paid</div>
           <div class="resource-name">Living by the Book</div>
-          <p class="resource-desc">A classic, clear guide to inductive Bible study. If you want to go deeper on the method itself, start here. Readable for high schoolers and adults alike, available new, used, Kindle and Audiobook.  </p>
-          <span class="resource-link">Living by the Book &rarr;</a></span>
+          <p class="resource-desc">A classic, clear guide to inductive Bible study. If you want to go deeper on the method itself, start here. Readable for high schoolers and adults alike, available new, used, Kindle and Audiobook.</p>
+          <span class="resource-link">Living by the Book &rarr;</span>
+        </a>
+        <div class="resource-card">
+          <div class="resource-type">Resource Church</div>
+          <div class="resource-name">Luke Journaling Bible</div>
+          <p class="resource-desc">Firm Family has copies available at the Resource Table. Wide margins designed for notes, marking, and study. Free.</p>
+        </div>
       </div>
     </div>
 
   </div>
 </section>
+
+<section id="schedule" class="schedule-bg">
+  <div class="section">
+    <p class="section-label">Reading Plan</p>
+    <h2 class="section-title">Passage Schedule</h2>
+    <div class="section-body">
+      <p>Each Sunday covers one section of Luke. Read the passage beforehand and discover a treasure!</p>
+    </div>
+    <table class="schedule-table">
+      <thead><tr><th>Date</th><th>Passage</th></tr></thead>
+      <tbody>
+        <tr><td>May 3</td><td class="passage">Introduction to Luke</td></tr>
+        <tr class="special"><td>May 10</td><td class="passage">Special Topic</td></tr>
+        <tr><td>May 17</td><td class="passage">Luke 1:1&ndash;25, 57&ndash;80</td></tr>
+        <tr><td>May 24</td><td class="passage">Luke 1:26&ndash;56, 2:1&ndash;21</td></tr>
+        <tr><td>May 31</td><td class="passage">Luke 2:22&ndash;52</td></tr>
+        <tr><td>Jun 7</td><td class="passage">Luke 3</td></tr>
+        <tr><td>Jun 14</td><td class="passage">Luke 4:1&ndash;13</td></tr>
+        <tr class="special"><td>Jun 21</td><td class="passage">Special Topic</td></tr>
+        <tr><td>Jun 28</td><td class="passage">Luke 4:14&ndash;30</td></tr>
+        <tr><td>Jul 5</td><td class="passage">Luke 4:31&ndash;44</td></tr>
+        <tr><td>Jul 12</td><td class="passage">Luke 5:1&ndash;11, 27&ndash;31</td></tr>
+        <tr><td>Jul 19</td><td class="passage">Luke 5:12&ndash;26</td></tr>
+        <tr><td>Jul 26</td><td class="passage">Luke 5:33&ndash;6:5</td></tr>
+        <tr><td>Aug 2</td><td class="passage">Luke 6:6&ndash;19</td></tr>
+        <tr><td>Aug 9</td><td class="passage">Luke 6:20&ndash;26</td></tr>
+        <tr><td>Aug 16</td><td class="passage">Luke 6:27&ndash;36</td></tr>
+        <tr><td>Aug 23</td><td class="passage">Luke 6:37&ndash;42</td></tr>
+        <tr><td>Aug 30</td><td class="passage">Luke 6:43&ndash;49</td></tr>
+        <tr class="special"><td>Sep 6</td><td class="passage">Special Topic</td></tr>
+        <tr><td>Sep 13</td><td class="passage">Luke 7:1&ndash;17</td></tr>
+        <tr><td>Sep 20</td><td class="passage">Luke 7:18&ndash;35</td></tr>
+        <tr><td>Sep 27</td><td class="passage">Luke 7:36&ndash;50</td></tr>
+        <tr><td>Oct 4</td><td class="passage">Luke 8:1&ndash;21</td></tr>
+        <tr><td>Oct 11</td><td class="passage">Luke 8:22&ndash;56</td></tr>
+        <tr><td>Oct 18</td><td class="passage">Luke 9:1&ndash;9</td></tr>
+        <tr><td>Oct 25</td><td class="passage">Luke 9:10&ndash;22</td></tr>
+        <tr><td>Nov 1</td><td class="passage">Luke 9:23&ndash;27</td></tr>
+        <tr><td>Nov 8</td><td class="passage">Luke 9:28&ndash;36</td></tr>
+        <tr><td>Nov 15</td><td class="passage">Luke 9:37&ndash;45</td></tr>
+        <tr><td>Nov 22</td><td class="passage">Luke 9:46&ndash;50</td></tr>
+        <tr><td>Nov 29</td><td class="passage">Luke 9:51&ndash;62</td></tr>
+      </tbody>
+    </table>
+  </div>
 
 <hr>
 <section id="prayer" class="resources-bg">

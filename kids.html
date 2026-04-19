@@ -198,7 +198,7 @@
   .search-bg { background: #f0f4ff; }
   .options-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(3, 1fr);
     gap: 1.25rem;
     margin-top: 2rem;
   }
@@ -444,14 +444,13 @@
 <section class="search-bg">
   <div class="section">
     <span class="section-tag" style="background:#e8edff; color:var(--blue);">Your Weekly Hunt</span>
-    <h2 class="section-title" style="color:var(--blue);">Pick Your Path Each Week</h2>
+    <h2 class="section-title" style="color:var(--blue);">What Will You Look For?</h2>
     <div class="section-body">
-      <p>Different weeks are different. Pick the one that works for you. All of them count!</p>
+      <p>Different weeks are different. Pick the one that works for you.</p>
     </div>
     <div class="options-grid">
       <div class="option-card easy">
-        <span class="option-badge">Easy Start</span>
-        <div class="option-letter">A</div>
+        <div class="option-letter" style="text-align:center;">A</div>
         <ul class="option-steps">
           <li>Read the passage before Sunday</li>
           <li>Find one thing that surprises you</li>
@@ -459,30 +458,17 @@
         </ul>
       </div>
       <div class="option-card medium">
-        <span class="option-badge">Going Deeper</span>
-        <div class="option-letter">B</div>
+        <div class="option-letter" style="text-align:center;">B</div>
         <ul class="option-steps">
-          <li>Everything in A</li>
+          <li>Find one thing that surprises you</li>
           <li>Circle every time you see God, Jesus, or Holy Spirit</li>
         </ul>
       </div>
       <div class="option-card harder">
-        <span class="option-badge">Level Up</span>
-        <div class="option-letter">C</div>
+        <div class="option-letter" style="text-align:center;">C</div>
         <ul class="option-steps">
-          <li>Everything in B</li>
-          <li>Circle important words that repeat</li>
-          <li>Give each section your own title</li>
-          <li>Find Jesus's location on a map</li>
-        </ul>
-      </div>
-      <div class="option-card challenge">
-        <span class="option-badge">Challenge Mode</span>
-        <div class="option-letter">D</div>
-        <ul class="option-steps">
-          <li>Everything in C</li>
-          <li>Find two things being compared or contrasted</li>
-          <li>Use Blue Letter Bible to look up one word</li>
+          <li>Find one thing that surprises you</li>
+          <li>In your own words, write out what's happening in the passage -- like you're telling a friend the story</li>
         </ul>
       </div>
     </div>
@@ -512,20 +498,6 @@
           <p class="mark-desc">Circle words that show up more than once. If a word keeps coming back, it's probably important!</p>
         </div>
       </div>
-      <div class="mark-card">
-        <div class="mark-icon">&#8596;</div>
-        <div>
-          <div class="mark-label">Arrow</div>
-          <p class="mark-desc">When two things are being compared or are opposites, draw an arrow between them.</p>
-        </div>
-      </div>
-      <div class="mark-card">
-        <div class="mark-icon">[ ]</div>
-        <div>
-          <div class="mark-label">Brackets</div>
-          <p class="mark-desc">Put brackets around a section and write a title above it in your own words. What is this part about?</p>
-        </div>
-      </div>
     </div>
 
     <div class="colors-box">
@@ -535,7 +507,6 @@
         <div class="color-row"><div class="color-dot" style="background:#4361ee;"></div>Blue &rarr; Jesus / Christ</div>
         <div class="color-row"><div class="color-dot" style="background:#f9c74f;"></div>Yellow &rarr; Holy Spirit</div>
         <div class="color-row"><div class="color-dot" style="background:#e05555;"></div>Red &rarr; Important words</div>
-        <div class="color-row"><div class="color-dot" style="background:#43aa8b;"></div>Green &rarr; Opposites / contrasts</div>
       </div>
     </div>
   </div>

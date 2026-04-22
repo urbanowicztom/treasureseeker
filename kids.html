@@ -380,12 +380,88 @@
   footer a { color: var(--yellow); text-decoration: none; }
 
   /* RESPONSIVE */
-  @media (max-width: 640px) {
+  @media (max-width: 760px) {
     .method-cards { grid-template-columns: 1fr; }
     .options-grid { grid-template-columns: 1fr; }
     .marks-grid { grid-template-columns: 1fr; }
     .section { padding: 2.5rem 1.25rem; }
-    .egg-callout { padding: 1.5rem 1.25rem 1.5rem 4.5rem; }
+    .egg-callout { padding: 1.5rem 1.25rem 1.5rem 4rem; }
+    .egg-callout::before { font-size: 1.8rem; left: 0.85rem; }
+    .hero { padding: 2.5rem 1.25rem 4rem; }
+    .hero-emoji { font-size: 3rem; }
+    nav { padding: 0 1rem; }
+    .nav-logo { font-size: 1.1rem; }
+    .color-rows { gap: 0.4rem; }
+    .schedule-table { font-size: 0.82rem; }
+    .schedule-table td:first-child { width: 80px; }
+  }
+  @media (max-width: 420px) {
+    .hero h1 { font-size: 1.9rem; }
+    .section-title { font-size: 1.4rem; }
+    .option-card { padding: 1.1rem; }
+    .method-card { padding: 1.1rem; }
+  }
+
+  /* PRINT STYLES */
+  @media print {
+    * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    nav, .hero, footer, .print-btn-wrap, .prayer-bg { display: none !important; }
+    body { background: white; font-family: Arial, sans-serif; font-size: 11pt; color: #111; line-height: 1.5; }
+    .section { padding: 0.5rem 0; max-width: 100%; }
+    .section-tag { display: none; }
+    .section-title { font-size: 14pt; margin-bottom: 0.4rem; font-family: Arial, sans-serif; color: #111; }
+    .section-body { font-size: 10pt; color: #333; }
+
+    /* Print header */
+    .print-header { display: block !important; text-align: center; border-bottom: 3px solid #4361ee; padding-bottom: 0.5rem; margin-bottom: 1rem; }
+    .print-header h1 { font-size: 18pt; font-family: Arial, sans-serif; color: #4361ee; margin-bottom: 0.2rem; }
+    .print-header p { font-size: 10pt; color: #555; }
+
+    /* Method cards */
+    .method-bg { background: white; }
+    .method-cards { grid-template-columns: repeat(3, 1fr); gap: 0.5rem; margin-top: 0.5rem; }
+    .method-card { padding: 0.6rem; border-width: 2px; }
+    .method-num { font-size: 1.4rem; }
+    .method-word { font-size: 10pt; }
+    .method-q { font-size: 9pt; }
+    .method-desc { font-size: 9pt; }
+
+    /* Egg callout */
+    .egg-callout { padding: 0.6rem 0.75rem 0.6rem 2.5rem; margin-top: 0.5rem; border-radius: 8px; }
+    .egg-callout::before { font-size: 1.2rem; left: 0.5rem; }
+    .egg-callout p { font-size: 9pt; }
+
+    /* Search options */
+    .search-bg { background: white; border-top: 1px solid #ddd; margin-top: 0.75rem; padding-top: 0.25rem; }
+    .options-grid { grid-template-columns: repeat(3, 1fr); gap: 0.5rem; margin-top: 0.5rem; }
+    .option-card { padding: 0.6rem; border-radius: 8px; border-width: 2px; }
+    .option-letter { font-size: 1.2rem; margin-bottom: 0.2rem; }
+    .option-steps li { font-size: 9pt; padding: 0.15rem 0; }
+
+    /* Marks */
+    .marks-bg { background: white; border-top: 1px solid #ddd; margin-top: 0.5rem; }
+    .marks-grid { grid-template-columns: repeat(2, 1fr); gap: 0.5rem; margin-top: 0.4rem; }
+    .mark-card { padding: 0.5rem 0.75rem; border-radius: 6px; }
+    .mark-icon { font-size: 1rem; width: 24px; }
+    .mark-label { font-size: 10pt; }
+    .mark-desc { font-size: 9pt; }
+    .colors-box { padding: 0.5rem 0.75rem; border-radius: 6px; margin-top: 0.5rem; }
+    .colors-title { font-size: 10pt; margin-bottom: 0.4rem; font-family: Arial, sans-serif; }
+    .color-rows { flex-direction: row; flex-wrap: wrap; gap: 0.4rem 1rem; }
+    .color-row { font-size: 9pt; }
+    .color-dot { width: 14px; height: 14px; }
+
+    /* Schedule */
+    .schedule-bg { background: white; border-top: 1px solid #ddd; margin-top: 0.5rem; }
+    .schedule-table { margin-top: 0.4rem; font-size: 9pt; }
+    .schedule-table th { font-size: 8pt; padding-bottom: 0.3rem; }
+    .schedule-table td { padding: 0.25rem 0.5rem 0.25rem 0; }
+
+    /* Treasure Seeker URL at bottom */
+    .print-footer { display: block !important; text-align: center; margin-top: 1rem; font-size: 9pt; color: #888; border-top: 1px solid #ddd; padding-top: 0.5rem; }
+
+    /* Page break hints */
+    .schedule-bg { page-break-before: always; }
   }
 </style>
 </head>
@@ -393,8 +469,19 @@
 
 <nav>
   <a href="index.html" class="nav-logo">&#x1F3AF; Treasure Seeker</a>
-  <a href="index.html" class="nav-back">&#8592; Back to Main Site</a>
+  <div style="display:flex; gap:0.75rem; align-items:center;">
+    <div class="print-btn-wrap">
+      <button onclick="window.print()" style="background:#f9c74f; color:#111; border:none; font-family:'Nunito',sans-serif; font-weight:700; font-size:0.85rem; padding:0.4rem 1rem; border-radius:100px; cursor:pointer;">&#x1F5A8; Print</button>
+    </div>
+    <a href="index.html" class="nav-back">&#8592; Back to Main Site</a>
+  </div>
 </nav>
+
+<!-- PRINT ONLY HEADER (hidden on screen) -->
+<div class="print-header" style="display:none;">
+  <h1>&#x1F3AF; Treasure Seeker: Gospel of Luke</h1>
+  <p>A kids' guide to reading Luke at Firm Family Church &nbsp;&middot;&nbsp; treasureseeker.org</p>
+</div>
 
 <header class="hero">
   <div class="hero-dots"></div>
@@ -580,8 +667,14 @@
 
 <footer>
   <p>Treasure Seeker: Gospel of Luke &nbsp;&middot;&nbsp; <a href="index.html">Back to Main Site</a></p>
+  <p style="margin-top:0.6rem;"><a href="bookmark.html" target="_blank" style="color:var(--yellow);">&#x1F516; Print a Reading Bookmark</a></p>
   <p style="margin-top:0.4rem;">treasureseeker.org &copy;2026</p>
 </footer>
+
+<!-- PRINT ONLY FOOTER (hidden on screen) -->
+<div class="print-footer" style="display:none;">
+  treasureseeker.org &nbsp;&middot;&nbsp; Firm Family Church, Chico CA &nbsp;&middot;&nbsp; 2026
+</div>
 
 </body>
 </html>

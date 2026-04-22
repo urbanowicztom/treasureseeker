@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Treasure Seeker Bookmarks</title>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@600;700&family=Lora:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: #ccc;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    font-size: 10px;
+  }
+
+  .screen-label {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.8rem;
+    color: #444;
+    text-align: center;
+    background: white;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+  }
+
+  .sheet {
+    width: 8.5in;
+    min-height: 11in;
+    background: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0.4in 0.5in;
+  }
+
+  .bookmarks-row {
+    display: flex;
+    flex-direction: row;
+    gap: 0.6in;
+    align-items: flex-start;
+    justify-content: center;
+  }
+
+  .cut-note {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 7pt;
+    color: #aaa;
+    text-align: center;
+    margin-bottom: 0.22in;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  /* BOOKMARK BASE */
+  .bookmark {
+    width: 2in;
+    height: 7in;
+    border: 1.5px solid #222;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    background: white;
+    position: relative;
+  }
+
+  /* ── KIDS ── */
+  .kids .top-bar {
+    border-bottom: 2px solid #4361ee;
+    padding: 0.11in 0.1in 0.1in;
+    text-align: center;
+  }
+  .kids .top-bar .title {
+    font-family: 'Fredoka One', cursive;
+    font-size: 12pt;
+    color: #4361ee;
+    line-height: 1.2;
+  }
+  .kids .top-bar .subtitle {
+    font-family: 'Nunito', sans-serif;
+    font-size: 5.8pt;
+    font-weight: 700;
+    color: #777;
+    margin-top: 2px;
+  }
+
+  .doodle-zone {
+    margin: 0.1in 0.1in 0.06in;
+    border: 1.5px dashed #f3722c;
+    border-radius: 6px;
+    height: 0.78in;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 3px;
+    flex-shrink: 0;
+  }
+  .doodle-label {
+    font-family: 'Fredoka One', cursive;
+    font-size: 7pt;
+    color: #f3722c;
+  }
+  .doodle-hint {
+    font-family: 'Nunito', sans-serif;
+    font-size: 5.5pt;
+    font-weight: 600;
+    color: #ccc;
+    font-style: italic;
+  }
+
+  .kids .list-area {
+    flex: 1;
+    padding: 0.08in 0.1in 0.08in;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+  .kids .list-head {
+    font-family: 'Fredoka One', cursive;
+    font-size: 6.5pt;
+    color: #4361ee;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding-bottom: 3px;
+    margin-bottom: 3px;
+    border-bottom: 1px solid #d0d8f8;
+    flex-shrink: 0;
+  }
+  .kids .rows {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .kids .row {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    border-bottom: 0.5px solid #f0f0f0;
+    padding: 0 0 1px;
+  }
+  .kids .box {
+    width: 8px;
+    height: 8px;
+    border: 1.5px solid #4361ee;
+    border-radius: 1.5px;
+    flex-shrink: 0;
+  }
+  .kids .row-text {
+    font-family: 'Nunito', sans-serif;
+    font-size: 5.8pt;
+    font-weight: 700;
+    color: #222;
+    line-height: 1.2;
+    flex: 1;
+  }
+  .kids .row.sp .box { border-color: #f3722c; border-style: dashed; }
+  .kids .row.sp .row-text { color: #f3722c; font-style: italic; }
+
+  .kids .bm-foot {
+    border-top: 2px solid #4361ee;
+    padding: 4px 0.1in;
+    text-align: center;
+    flex-shrink: 0;
+  }
+  .kids .bm-foot-text {
+    font-family: 'Fredoka One', cursive;
+    font-size: 5.5pt;
+    color: #4361ee;
+    letter-spacing: 0.05em;
+  }
+
+  /* ── ADULT ── */
+  .adult .top-bar {
+    border-bottom: 2px solid #111;
+    padding: 0.12in 0.1in 0.1in;
+    text-align: center;
+  }
+  .adult .top-bar .eyebrow {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 5pt;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #aaa;
+    margin-bottom: 3px;
+  }
+  .adult .top-bar .title {
+    font-family: 'Lora', serif;
+    font-size: 11pt;
+    color: #111;
+    font-style: italic;
+    line-height: 1.2;
+  }
+  .adult .top-bar .subtitle {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 5.5pt;
+    color: #888;
+    margin-top: 3px;
+    letter-spacing: 0.06em;
+  }
+
+  .personal-zone {
+    margin: 0.1in 0.1in 0.06in;
+    height: 0.6in;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-end;
+    gap: 0;
+    padding: 0 0.05in;
+  }
+  .personal-label {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 5pt;
+    color: #ccc;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 5px;
+  }
+  .personal-lines {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+  }
+  .personal-line {
+    border-bottom: 0.75px solid #ddd;
+  }
+
+  .adult .list-area {
+    flex: 1;
+    padding: 0.08in 0.1in 0.08in;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+  .adult .list-head {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 5.5pt;
+    font-weight: 500;
+    color: #aaa;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    padding-bottom: 3px;
+    margin-bottom: 3px;
+    border-bottom: 1px solid #e8e8e8;
+    flex-shrink: 0;
+  }
+  .adult .rows {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .adult .row {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    border-bottom: 0.5px solid #f4f4f4;
+    padding: 0 0 1px;
+  }
+  .adult .box {
+    width: 7px;
+    height: 7px;
+    border: 1px solid #666;
+    border-radius: 1px;
+    flex-shrink: 0;
+  }
+  .adult .row-text {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 5.8pt;
+    font-weight: 400;
+    color: #222;
+    line-height: 1.2;
+    flex: 1;
+  }
+  .adult .row.sp .box { border-color: #bbb; border-style: dashed; }
+  .adult .row.sp .row-text { color: #aaa; font-style: italic; }
+
+  .adult .bm-foot {
+    border-top: 1.5px solid #222;
+    padding: 4px 0.1in;
+    text-align: center;
+    flex-shrink: 0;
+  }
+  .adult .bm-foot-text {
+    font-family: 'Lora', serif;
+    font-size: 5.5pt;
+    color: #666;
+    font-style: italic;
+    letter-spacing: 0.04em;
+  }
+
+  @media print {
+    body { background: white; padding: 0; margin: 0; }
+    .screen-label { display: none; }
+    .sheet { padding: 0.4in 0.5in; min-height: 0; }
+  }
+</style>
+</head>
+<body>
+
+<p class="screen-label">&#x1F5A8; Print with Ctrl/Cmd+P &nbsp;&middot;&nbsp; Set margins to None &nbsp;&middot;&nbsp; Cut along outer border of each bookmark &nbsp;&middot;&nbsp; Works in B&amp;W</p>
+
+<div class="sheet">
+  <p class="cut-note">&#x2702; &nbsp; cut along the outer border of each bookmark &nbsp; &#x2702;</p>
+  <div class="bookmarks-row">
+
+    <!-- KIDS BOOKMARK -->
+    <div class="bookmark kids">
+
+      <div class="top-bar">
+        <div class="title">Gospel of Luke</div>
+        <div class="subtitle">Firm Family Church &middot; 2026</div>
+      </div>
+
+      <div class="list-area">
+        <div class="list-head">Check off each one!</div>
+        <div class="rows">
+          <div class="row"><div class="box"></div><div class="row-text">May 3 &mdash; Intro to Luke</div></div>
+          <div class="row sp"><div class="box"></div><div class="row-text">May 10 &mdash; Special Topic</div></div>
+          <div class="row"><div class="box"></div><div class="row-text">May 17 &mdash; Luke 1:1&ndash;25, 57&ndash;80</div></div>
+          <div class="row"><div class="box"></div><div class="row-text">May 24 &mdash; Luke 1:26&ndash;56, 2:1&ndash;21</div></div>
+          <div class="row"><div class="box"></div><div class="row-text">May 31 &mdash; Luke 2:22&ndash;52</div></div>
+          <div class="row"><div class="box"></div><div class="row-text">Jun 7 &mdash; Luke 3</div></div>
+          <div class="row"><div class="box"></div><div class="row-text">Jun 14 &mdash; Luke 4:1&ndash;13</div></div>
+          <div class="row sp"><div class="box"></div><div class="row-text">Jun 21 &mdash; Special Topic</div></div>
+          <div class="row"><div class="box"></div><div class="row-text">Jun 28 &mdash; Luke 4:14&ndash;30</div></div>
+          <div class="row"><div class="box"></div><div class="row-text">Jul 5 &mdash; Luke 4:31&ndash;44</div></div>
+          <div class="row"><div class="box"></div><div class="row-text">Jul 12 &mdash; Luke 5:1&ndash;11, 27&ndash;31</div></div>
+          <div class="row"><div class="box"></div><div class="row-text">Jul 19 &mdash; Luke 5:12&ndash;26</div></div>
+          <div class="row"><div class="box"></div><div class="row-text">Jul 26 &mdash; Luke 5:33&ndash;6:5</div></div>
+          <div class="row"><div class="box"></div><div class="row-text">Aug 2 &mdash; Luke 6:6&ndash;19</div></div>
+          <div class="row"><div class="box"></div><div class="row-text">Aug 9 &mdash; Luke 6:20&ndash;26</div></div>
+          <div class="row"><div class="box"></div><div class="row-text">Aug 16 &mdash; Luke 6:27&ndash;36</div></div>
+          <div class="row"><div class="box"></div><div class="row-text">Aug 23 &mdash; Luke 6:37&ndash;42</div></div>
+          <div class="row"><div class="box"></div><div class="row-text">Aug 30 &mdash; Luke 6:43&ndash;49</div></div>
+          <div class="row sp"><div class="box"></div><div class="row-text">Sep 6 &mdash; Special Topic</div></div>
+          <div class="row"><div class="box"></div><div class="row-text">Sep 13 &mdash; Luke 7:1&ndash;17</div></div>
+          <div class="row"><div class="box"></div><div class="row-text">Sep 20 &mdash; Luke 7:18&ndash;35</div></div>
+          <div class="row"><div class="box"></div><div class="row-text">Sep 27 &mdash; Luke 7:36&ndash;50</div></div>
+          <div class="row"><div class="box"></div><div class="row-text">Oct 4 &mdash; Luke 8:1&ndash;21</div></div>
+          <div class="row"><div class="box"></div><div class="row-text">Oct 11 &mdash; Luke 8:22&ndash;56</div></div>
+          <div class="row"><div class="box"></div><div class="row-text">Oct 18 &mdash; Luke 9:1&ndash;9</div></div>
+          <div class="row"><div class="box"></div><div class="row-text">Oct 25 &mdash; Luke 9:10&ndash;22</div></div>
+          <div class="row"><div class="box"></div><div class="row-text">Nov 1 &mdash; Luke 9:23&ndash;27</div></div>
+          <div class="row"><div class="box"></div><div class="row-text">Nov 8 &mdash; Luke 9:28&ndash;36</div></div>
+          <div class="row"><div class="box"></div><div class="row-text">Nov 15 &mdash; Luke 9:37&ndash;45</div></div>
+          <div class="row"><div class="box"></div><div class="row-text">Nov 22 &mdash; Luke 9:46&ndash;50</div></div>
+          <div class="row"><div class="box"></div><div class="row-text">Nov 29 &mdash; Luke 9:51&ndash;62</div></div>
+        </div>
+      </div>
+
+      <div class="bm-foot">
+        <div class="bm-foot-text">treasureseeker.org</div>
+      </div>
+    </div>
+
+    <!-- ADULT BOOKMARK -->
+    <div class="bookmark adult">
+
+      <div class="top-bar">
+        <div class="title">Gospel of Luke</div>
+        <div class="subtitle">Firm Family Church &middot; 2026</div>
+      </div>
+
+      <div class="list-area">
+        <div class="list-head">Passage Checklist</div>
+        <div class="rows">
+          <div class="row"><div class="box"></div><div class="row-text">May 3 &mdash; Intro to Luke</div></div>
+          <div class="row sp"><div class="box"></div><div class="row-text">May 10 &mdash; Special Topic</div></div>
+          <div class="row"><div class="box"></div><div class="row-text">May 17 &mdash; Luke 1:1&ndash;25, 57&ndash;80</div></div>
+          <div class="row"><div class="box"></div><div class="row-text">May 24 &mdash; Luke 1:26&ndash;56, 2:1&ndash;21</div></div>
+          <div class="row"><div class="box"></div><div class="row-text">May 31 &mdash; Luke 2:22&ndash;52</div></div>
+          <div class="row"><div class="box"></div><div class="row-text">Jun 7 &mdash; Luke 3</div></div>
+          <div class="row"><div class="box"></div><div class="row-text">Jun 14 &mdash; Luke 4:1&ndash;13</div></div>
+          <div class="row sp"><div class="box"></div><div class="row-text">Jun 21 &mdash; Special Topic</div></div>
+          <div class="row"><div class="box"></div><div class="row-text">Jun 28 &mdash; Luke 4:14&ndash;30</div></div>
+          <div class="row"><div class="box"></div><div class="row-text">Jul 5 &mdash; Luke 4:31&ndash;44</div></div>
+          <div class="row"><div class="box"></div><div class="row-text">Jul 12 &mdash; Luke 5:1&ndash;11, 27&ndash;31</div></div>
+          <div class="row"><div class="box"></div><div class="row-text">Jul 19 &mdash; Luke 5:12&ndash;26</div></div>
+          <div class="row"><div class="box"></div><div class="row-text">Jul 26 &mdash; Luke 5:33&ndash;6:5</div></div>
+          <div class="row"><div class="box"></div><div class="row-text">Aug 2 &mdash; Luke 6:6&ndash;19</div></div>
+          <div class="row"><div class="box"></div><div class="row-text">Aug 9 &mdash; Luke 6:20&ndash;26</div></div>
+          <div class="row"><div class="box"></div><div class="row-text">Aug 16 &mdash; Luke 6:27&ndash;36</div></div>
+          <div class="row"><div class="box"></div><div class="row-text">Aug 23 &mdash; Luke 6:37&ndash;42</div></div>
+          <div class="row"><div class="box"></div><div class="row-text">Aug 30 &mdash; Luke 6:43&ndash;49</div></div>
+          <div class="row sp"><div class="box"></div><div class="row-text">Sep 6 &mdash; Special Topic</div></div>
+          <div class="row"><div class="box"></div><div class="row-text">Sep 13 &mdash; Luke 7:1&ndash;17</div></div>
+          <div class="row"><div class="box"></div><div class="row-text">Sep 20 &mdash; Luke 7:18&ndash;35</div></div>
+          <div class="row"><div class="box"></div><div class="row-text">Sep 27 &mdash; Luke 7:36&ndash;50</div></div>
+          <div class="row"><div class="box"></div><div class="row-text">Oct 4 &mdash; Luke 8:1&ndash;21</div></div>
+          <div class="row"><div class="box"></div><div class="row-text">Oct 11 &mdash; Luke 8:22&ndash;56</div></div>
+          <div class="row"><div class="box"></div><div class="row-text">Oct 18 &mdash; Luke 9:1&ndash;9</div></div>
+          <div class="row"><div class="box"></div><div class="row-text">Oct 25 &mdash; Luke 9:10&ndash;22</div></div>
+          <div class="row"><div class="box"></div><div class="row-text">Nov 1 &mdash; Luke 9:23&ndash;27</div></div>
+          <div class="row"><div class="box"></div><div class="row-text">Nov 8 &mdash; Luke 9:28&ndash;36</div></div>
+          <div class="row"><div class="box"></div><div class="row-text">Nov 15 &mdash; Luke 9:37&ndash;45</div></div>
+          <div class="row"><div class="box"></div><div class="row-text">Nov 22 &mdash; Luke 9:46&ndash;50</div></div>
+          <div class="row"><div class="box"></div><div class="row-text">Nov 29 &mdash; Luke 9:51&ndash;62</div></div>
+        </div>
+      </div>
+
+      <div class="bm-foot">
+        <div class="bm-foot-text">treasureseeker.org</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+</body>
+</html>

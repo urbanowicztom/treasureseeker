@@ -242,6 +242,35 @@
     flex-direction: column;
     overflow: hidden;
   }
+  .adult-guide {
+    margin-bottom: 4px;
+    padding-bottom: 4px;
+    border-bottom: 1px solid #e0e0e0;
+    display: flex;
+    flex-direction: column;
+    gap: 2.5px;
+    flex-shrink: 0;
+  }
+  .guide-row {
+    display: flex;
+    align-items: baseline;
+    gap: 4px;
+  }
+  .guide-letter {
+    font-family: 'Lora', serif;
+    font-size: 6.5pt;
+    font-weight: 600;
+    color: #111;
+    flex-shrink: 0;
+    width: 8px;
+  }
+  .guide-text {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 5.5pt;
+    color: #666;
+    line-height: 1.3;
+  }
+
   .adult .list-head {
     font-family: 'DM Sans', sans-serif;
     font-size: 5.5pt;
@@ -373,6 +402,11 @@
       </div>
 
       <div class="list-area">
+        <div class="adult-guide">
+          <div class="guide-row"><span class="guide-letter">A</span><span class="guide-text">Find one treasure &middot; Read before Sunday</span></div>
+          <div class="guide-row"><span class="guide-letter">B</span><span class="guide-text">Find one treasure &middot; Circle God / Jesus / Spirit</span></div>
+          <div class="guide-row"><span class="guide-letter">C</span><span class="guide-text">Find one treasure &middot; Identify keywords &middot; Write section titles</span></div>
+        </div>
         <div class="list-head">Passage Checklist</div>
         <div class="rows">
           <div class="row"><div class="box"></div><div class="row-text">May 3 &mdash; Intro to Luke</div></div>

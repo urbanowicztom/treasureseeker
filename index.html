@@ -239,6 +239,52 @@
   .chip { display: inline-flex; align-items: center; gap: 0.4rem; font-size: 0.79rem; padding: 0.25rem 0.7rem; border-radius: 100px; border: 1px solid var(--border); background: white; color: var(--text-mid); }
   .chip-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
 
+  /* THEMES & KEYWORDS */
+  .themes-keywords {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.25rem;
+    margin-top: 1.5rem;
+  }
+  .tk-col {
+    background: var(--cream);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 1.1rem 1.25rem;
+  }
+  .tk-head {
+    font-size: 0.68rem;
+    font-weight: 500;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--teal-deep);
+    margin-bottom: 0.65rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--border);
+  }
+  .tk-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+  .tk-list li {
+    font-size: 0.88rem;
+    color: var(--text-mid);
+    padding-left: 0.85rem;
+    position: relative;
+  }
+  .tk-list li::before {
+    content: '';
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: var(--teal-dark);
+    position: absolute;
+    left: 0;
+    top: 0.55em;
+  }
+
   /* RESOURCES */
   .resources-bg { background: var(--cream); }
   .resource-tier { margin-top: 2.5rem; }
@@ -278,6 +324,7 @@
     .paths-row { grid-template-columns: 1fr; }
     .marks-grid { grid-template-columns: 1fr; }
     .tier-cards { grid-template-columns: 1fr; }
+    .themes-keywords { grid-template-columns: 1fr; }
     .section { padding: 3rem 1.25rem; }
     .hunt-callout { padding: 1.75rem; }
   }
@@ -436,6 +483,28 @@
         <span class="chip"><span class="chip-dot" style="background:#e05555;"></span>Red &mdash; key terms</span>
       </div>
       <p style="margin-top: 0.65rem; font-size: 0.84rem; color: var(--text-muted);">These aren't rules. Use what helps you see.</p>
+    </div>
+
+    <div class="themes-keywords">
+      <div class="tk-col">
+        <div class="tk-head">Themes</div>
+        <ul class="tk-list">
+          <li>Broad Compassion</li>
+          <li>Upside-Down Kingdom</li>
+          <li>Good News for All</li>
+        </ul>
+      </div>
+      <div class="tk-col">
+        <div class="tk-head">Keywords</div>
+        <ul class="tk-list">
+          <li>God, Jesus, Holy Spirit</li>
+          <li>Son of Man</li>
+          <li>Pray / Prayer</li>
+          <li>Joy / Rejoice</li>
+          <li>Lost</li>
+          <li>Proclaim / Good News</li>
+        </ul>
+      </div>
     </div>
   </div>
 </section>
